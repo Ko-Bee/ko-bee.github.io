@@ -46,7 +46,7 @@ mark.colorPop{
     background-color: teal\;
 }
 
-.resistorInput form{
+.resistorInput {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 20px;
@@ -112,7 +112,7 @@ output, label {
 
 /* The below styles occur when viewed on mobile */
 @media(max-width:700px){
-    .resistorInput form{
+    .resistorInput{
         display: grid;
         grid-template-columns: auto auto;
         grid-column-gap: 0px;
