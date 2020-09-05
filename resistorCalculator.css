@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+
+body, html{
+    background: #92bde7;
+    color: #485e74;
+    line-height:1.6;
+    font-family: 'Rubik', sans-serif;;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+
+}
+
+.container{
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0em;
+}
+
+.container{
+    box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+    background-color: white;
+}
+
+.wrapper > *{
+    padding: 1em;
+}
+
+.howToUse{
+    background: #f9feff;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+mark.colorPop{
+    color: #ffbb19;
+    background: none;
+    font-weight: 600;
+}
+
+/* Inputs Section */
+.resistorInput{
+    background-color: teal\;
+}
+
+.resistorInput form{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 20px;
+}
+
+.inputBoxRes {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: #eceff1;
+    border: 2px solid #eceff1;
+    color: #37474f;
+    width:60%
+}
+
+.sizeSelector {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: #eceff1;
+    border: 2px solid #eceff1;
+    color: #37474f;
+    width: 29%
+}
+
+
+input, label {
+    display:block;
+}
+
+/* Radio Section */
+.resSetupParams {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 20px;
+}
+
+
+/* Results Section */
+
+.calculationResult{
+    background: #ffbb19;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    min-height: 100px;
+
+}
+
+.outputBoxRes {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: #eceff1;
+    border: 2px solid #eceff1;
+    color: #37474f;
+    width: 100%
+}
+
+
+
+output, label {
+    padding-bottom: 10px;
+}
+
+/* The below styles occur when viewed on mobile */
+@media(max-width:700px){
+    .resistorInput form{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: 0px;
+    }
+
+    .howToUse{
+        background: #f9feff;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
