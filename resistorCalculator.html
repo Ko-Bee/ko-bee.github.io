@@ -19,12 +19,15 @@
                     <li>Select the number of <mark class="colorPop">Resistors</mark> in the circuit</li>
                     <li>Enter <mark class="colorPop">Resistor</mark> Values</li>
                 </ol>
-                <img src="//cdn.shopify.com/s/files/1/0452/2564/0087/files/AlchitryLogo_large.png?v=1597984125" width="100%">
+                <img src="//cdn.shopify.com/s/files/1/0452/2564/0087/files/AlchitryLogo_large.png?v=1597984125" width="80%">
+            </div>
+            <div class="resSetupParamsLabel">
+                <p>No. Of Resistors</p>
+
             </div>
             <div class="resSetupParams">
                     <p>
-                        <label>How Many</label>
-                        <select id="noOfResistors", name="noOfResistors" class="inputBoxRes">
+                        <select id="noOfResistors", name="noOfResistors" class="inputBoxRes2">
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -35,12 +38,14 @@
                             <option value="9">9</option>
                         </select>
                     </p>
-                    <p>
-                        <input type="radio" id="resConfig" name="resConfig" value="parallel">
-                        <label for="parallel">Parallel</label><br>
-                        <input type="radio" id="resConfig2" name="resConfig" value="series">
-                        <label for="series">Series</label><br>
-                    </p>
+                    <div class="radio-container">
+                        <input type="radio" name="resType" id="parallel" checked="checked">
+                        <label class ="radio-label" for="parallel">Parallel</label>
+                    </div>
+                    <div class="radio-container">
+                        <input type="radio" name="resType" id="series">
+                        <label class="radio-label" for="series">Series</label>
+                    </div>
             </div>
             <div class="resistorInput">   
                     <p>

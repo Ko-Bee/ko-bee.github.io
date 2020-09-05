@@ -9,7 +9,7 @@ body, html{
     font-family: 'Rubik', sans-serif;;
     padding: 0;
     margin: 0;
-    align-content: center;
+
 
 }
 
@@ -18,6 +18,8 @@ body, html{
     margin-left:auto;
     margin-right:auto;
     padding:0em;
+    align-items: center;
+    justify-content: center;
 }
 
 .container{
@@ -27,6 +29,8 @@ body, html{
 
 .wrapper > *{
     padding: 1em;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 .howToUse{
@@ -61,6 +65,15 @@ mark.colorPop{
     width:60%
 }
 
+.inputBoxRes2 {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: #eceff1;
+    border: 2px solid #eceff1;
+    color: #37474f;
+    width:100%
+}
+
 .sizeSelector {
     border-radius: 6px;
     padding: 8px 11px;
@@ -78,8 +91,23 @@ input, label {
 /* Radio Section */
 .resSetupParams {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
+    padding-bottom: 0;
+    padding-top: 0;
     grid-column-gap: 20px;
+    align-content: center;
+    align-items: center;
+}
+
+.resSetupParamsLabel {
+    display: grid;
+    grid-template-columns: 33.333% 66.66% ;
+    padding-bottom: 0;
+    padding-top: 0;
+    grid-column-gap: 20px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -105,9 +133,50 @@ input, label {
 }
 
 
-
 output, label {
     padding-bottom: 10px;
+}
+
+
+
+.centercenter {
+    text-align: center;
+    vertical-align: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.radio-label{
+    position: relative;
+    color: #ffbb19;
+    font-size: 10x;
+    border: 2px solid #ffbb19;
+    border-radius: 10px;
+    padding: 2px 35%;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+input[type="radio"]:checked + label {
+    background-color: #ffbb19;
+    color: white;
+
+}
+
+input[type="radio"]:checked + label:before {
+    height: 10px;
+    width: 10px;
+    border: 10px solid white;
+    background-color: #ffbb19;
+    color: white;
+
 }
 
 /* The below styles occur when viewed on mobile */
