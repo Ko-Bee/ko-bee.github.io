@@ -1,4 +1,33 @@
-document.getElementById("button1").addEventListener("click", checkHowMany);
+unusedArrayAchiever();
+document.getElementById("button1").addEventListener("click", checkHowMany)
+document.getElementById("noOfResistors").addEventListener("change", unusedArrayAchiever)
+
+function unusedArrayAchiever(){
+    var resistorList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for (i=0; i<resistorList.length; i++){
+        resistorList[i]=0;
+    }
+    var noOfResistors = document.getElementById("noOfResistors").value;
+    for (i=0; i<noOfResistors; i++){
+        resistorList[i]=1;
+    }
+    for (i=0; i<resistorList.length; i++){
+        var str1 = "R";
+        var str2 = "paragraphSection";
+        var c = parseInt(i)+1;
+        var str3 = c.toString(10);
+        var validID = str1.concat(str3, str2);
+        if(resistorList[i]=="0"){
+            var x = document.getElementById(validID);
+                x.style.display = "none";
+    }
+        else {
+            var x = document.getElementById(validID);
+                x.style.display = "block";
+    }
+    }   
+
+}
 
 
 function checkHowMany(){
