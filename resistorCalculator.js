@@ -1,5 +1,4 @@
 unusedArrayAchiever();
-document.getElementById("button1").addEventListener("click", checkHowMany)
 document.getElementById("r1").addEventListener("input", checkHowMany)
 document.getElementById("r2").addEventListener("input", checkHowMany)
 document.getElementById("r3").addEventListener("input", checkHowMany)
@@ -277,15 +276,22 @@ function inputConvert(x,y){
 }
 
 function finalOutputFunction(x){
-    if(x>=1000000){
-        var y = x/1000000
-        document.getElementById("resultOut2").innerText = (Math.round((y + Number.EPSILON) * 100) / 100) + " MΩ";
-    }
-    else if(x>=1000 && x<1000000){
-        var y = x/1000
-        document.getElementById("resultOut2").innerText = (Math.round((y + Number.EPSILON) * 100) / 100) + " kΩ";
+    if(isNaN(x)){
+        document.getElementById("resultOut2").innerText = "";
     }
     else {
-        document.getElementById("resultOut2").innerText = (Math.round((x + Number.EPSILON) * 100) / 100) +" Ω";
+        x=x;
+    
+        if(x>=1000000){
+            var y = x/1000000
+            document.getElementById("resultOut2").innerText = (Math.round((y + Number.EPSILON) * 100) / 100) + " MΩ";
+        }
+        else if(x>=1000 && x<1000000){
+            var y = x/1000
+            document.getElementById("resultOut2").innerText = (Math.round((y + Number.EPSILON) * 100) / 100) + " kΩ";
+        }
+        else {
+            document.getElementById("resultOut2").innerText = (Math.round((x + Number.EPSILON) * 100) / 100) +" Ω";
     }
+}
 }
