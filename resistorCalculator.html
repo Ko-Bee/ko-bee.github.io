@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Example</title>
-    <link href="resistorCalculator.css" rel="stylesheet">
-    <script src="resistorCalculator.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
-    <script>
-        function resizeIframe(obj) {
-            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-        }
-    </script>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Example</title>
+        <link href="resistorCalculator.css" rel="stylesheet" />
+        <script src="resistorCalculator.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + "px";
+            }
+        </script>
+    </head>
 
-
-<body>
-    <div class="container">
-        <div class="wrapper">
-            <div class="howToUse">
-                <ol>
-                    <li>Select Series or Parallel <mark class="colorPop">Resistor</mark></li>
-                    <li>Select the number of <mark class="colorPop">Resistors</mark> in the circuit</li>
-                    <li>Enter <mark class="colorPop">Resistor</mark> Values</li>
-                </ol>
-                <img id="headerImage"src="//cdn.shopify.com/s/files/1/0452/2564/0087/files/AlchitryLogo_large.png?v=1597984125" width="80%">
-            </div>
-            <div class="resSetupParamsLabel">
-                <p>No. Of Resistors</p>
-
-            </div>
-            <div class="resSetupParams">
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="howToUse">
+                    <ol>
+                        <li>Select Series or Parallel <mark class="colorPop">Resistor</mark></li>
+                        <li>Select the number of <mark class="colorPop">Resistors</mark> in the circuit</li>
+                        <li>Enter <mark class="colorPop">Resistor</mark> Values</li>
+                    </ol>
+                </div>
+                <div class="resSetupParamsLabel">
+                    <p>No. Of Resistors</p>
+                </div>
+                <div class="resSetupParams">
                     <p>
-                        <select id="noOfResistors", name="noOfResistors" class="inputBoxRes2">
+                        <select id="noOfResistors" , name="noOfResistors" class="inputBoxRes2">
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
@@ -45,19 +42,32 @@
                         </select>
                     </p>
                     <div class="radio-container">
-                        <input onclick="document.getElementById('headerImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Logo2_125x.png?v=1596944343'" type= "radio" name="resType" id="parallel" checked="checked">
-                        <label class ="radio-label" for="parallel">Parallel</label>
+                        <input
+                            onclick="document.getElementById('headerImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel.png?v=1599385115',
+                            document.getElementById('calculationImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel-Calculation.png?v=1599386148'"
+                            type="radio"
+                            name="resType"
+                            id="parallel"
+                            checked="checked"
+                        />
+                        <label class="radio-label" for="parallel">Parallel</label>
                     </div>
                     <div class="radio-container">
-                        <input onclick="document.getElementById('headerImage').src='//cdn.shopify.com/s/files/1/0452/2564/0087/files/AlchitryLogo_large.png?v=1597984125'" type="radio" name="resType" id="series">
+                        <input
+                            onclick="document.getElementById('headerImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Series.png?v=1599385124',
+                            document.getElementById('calculationImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Series-Calculation.png?v=1599386154'"
+                            type="radio"
+                            name="resType"
+                            id="series"
+                        />
                         <label class="radio-label" for="series">Series</label>
                     </div>
-            </div>
-            <div class="resistorInput">   
+                </div>
+                <div class="resistorInput">
                     <p id="R1paragraphSection">
                         <label>R1</label>
-                        <input style="display: inline;" type="number" id="r1" name="r1" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR1", name="sizeSelectorR1" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r1" name="r1" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR1" , name="sizeSelectorR1" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -65,8 +75,8 @@
                     </p>
                     <p id="R2paragraphSection">
                         <label>R2</label>
-                        <input style="display: inline;" type="number" id="r2" name="r2" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR2", name="sizeSelectorR2" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r2" name="r2" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR2" , name="sizeSelectorR2" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -74,17 +84,17 @@
                     </p>
                     <p id="R3paragraphSection" hidden>
                         <label>R3</label>
-                        <input style="display: inline;" type="number" id="r3" name="r3" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR3", name="sizeSelectorR3" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r3" name="r3" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR3" , name="sizeSelectorR3" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
-                    </p>      
+                    </p>
                     <p id="R4paragraphSection" hidden>
                         <label>R4</label>
-                        <input style="display: inline;" type="number" id="r4" name="r4" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR4", name="sizeSelectorR4" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r4" name="r4" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR4" , name="sizeSelectorR4" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -92,8 +102,8 @@
                     </p>
                     <p id="R5paragraphSection" hidden>
                         <label>R5</label>
-                        <input style="display: inline;" type="number" id="r5" name="r5" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR5", name="sizeSelectorR5" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r5" name="r5" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR5" , name="sizeSelectorR5" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -101,17 +111,17 @@
                     </p>
                     <p id="R6paragraphSection" hidden>
                         <label>R6</label>
-                        <input style="display: inline;" type="number" id="r6" name="r6" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR6", name="sizeSelectorR6" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r6" name="r6" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR6" , name="sizeSelectorR6" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
-                    </p>  
-                    <p id="R7paragraphSection" hidden> 
+                    </p>
+                    <p id="R7paragraphSection" hidden>
                         <label>R7</label>
-                        <input style="display: inline;" type="number" id="r7" name="r7" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR7", name="sizeSelectorR7" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r7" name="r7" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR7" , name="sizeSelectorR7" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -119,8 +129,8 @@
                     </p>
                     <p id="R8paragraphSection" hidden>
                         <label>R8</label>
-                        <input style="display: inline;" type="number" id="r8" name="r8" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR8", name="sizeSelectorR8" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r8" name="r8" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR8" , name="sizeSelectorR8" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -128,32 +138,56 @@
                     </p>
                     <p id="R9paragraphSection" hidden>
                         <label>R9</label>
-                        <input style="display: inline;" type="number" id="r9" name="r9" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR9", name="sizeSelectorR9" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r9" name="r9" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR9" , name="sizeSelectorR9" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
-                    </p>  
+                    </p>
                     <p id="R10paragraphSection" hidden>
                         <label>R10</label>
-                        <input style="display: inline;" type="number" id="r10" name="r10" class="inputBoxRes">
-                        <select style="display: inline;" id="sizeSelectorR10", name="sizeSelectorR10" class="sizeSelector">
+                        <input style="display: inline" type="number" id="r10" name="r10" class="inputBoxRes" />
+                        <select style="display: inline" id="sizeSelectorR10" , name="sizeSelectorR10" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
-                    </p> 
-        </div> 
-                    </div>
-            <div class ="calculationResult">
-                    <p>
-                        <label>Equivalent Resistance</label>
                     </p>
-                    <div class="OutputResultFormatting"id="resultOut2"></div>
-
+                </div>
             </div>
-    </div>
-    
-</body>
+            <div class="sideBanner">
+                <h1 text-align: center;>Series and Parallel Resistor Calculator</h1>
+                <p>This tool calculates the overall resistance value for multiple resistances connected either in series or in parallel.</p>
+                <img id="headerImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel.png?v=1599385115" width="100%" />
+                <p>You may want to increase your understanding by using the equation below:</p>
+                <img id="calculationImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel-Calculation.png?v=1599386148" width="100%"/>
+            </div>
+        </div>
+        <div class="calculationResult">
+            <h3>Equivalent Resistance:</h3>
+            <div class="OutputResultFormatting" id="resultOut2"></div>
+        </div>
+        <div class="OtherCalculatorsText"><h2>Other Calculators:</h2></div>
+        <div class="otherCalculators">
+            <p>
+                <a href="https://www.ko-bee.com/pages/series-and-parallel-capacitor-calculator"
+                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Series-Parallel-Equivalent-Capacitors.png?v=1599378727" width="90%"
+                /></a>
+            </p>
+            <p>
+                <a href="https://www.ko-bee.com/pages/voltage-divider-calculator"><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Voltage-Divider.png?v=1599384007" width="90%" /></a>
+            </p>
+            <p>
+                <a href="https://www.ko-bee.com/pages/led-series-resistor-calculator"
+                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/LED-Series-Resistor.png?v=1599384000" width="90%"
+                /></a>
+            </p>
+            <p>
+                <a href="https://www.ko-bee.com/pages/all-calculators"
+                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/All-Calculators.png?v=1599388417" width="90%"
+                /></a>
+            </p>
+        </div>
+    </body>
 </html>
