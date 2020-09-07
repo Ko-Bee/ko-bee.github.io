@@ -23,6 +23,7 @@ document.getElementById("parallel").addEventListener("click", checkHowMany);
 document.getElementById("series").addEventListener("click", checkHowMany);
 document.getElementById("noOfResistors").addEventListener("change", clearAllValues);
 document.getElementById("noOfResistors").addEventListener("change", unusedArrayAchiever);
+document.getElementById("parallel").addEventListener("click", checkHowMany)
 
 function unusedArrayAchiever() {
     var resistorList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -295,12 +296,12 @@ function finalOutputFunction(x) {
 
         if (x >= 1000000) {
             var y = x / 1000000;
-            document.getElementById("resultOut2").innerText = Math.round((y + Number.EPSILON) * 100) / 100 + " MΩ";
+            document.getElementById("resultOut2").innerText ="Total Resistance: " + Math.round((y + Number.EPSILON) * 100) / 100 + " MΩ";
         } else if (x >= 1000 && x < 1000000) {
             var y = x / 1000;
-            document.getElementById("resultOut2").innerText = Math.round((y + Number.EPSILON) * 100) / 100 + " kΩ";
+            document.getElementById("resultOut2").innerText ="Total Resistance: " + Math.round((y + Number.EPSILON) * 100) / 100 + " kΩ";
         } else {
-            document.getElementById("resultOut2").innerText = Math.round((x + Number.EPSILON) * 100) / 100 + " Ω";
+            document.getElementById("resultOut2").innerText ="Total Resistance: " + Math.round((x + Number.EPSILON) * 100) / 100 + " Ω";
         }
     }
 }
