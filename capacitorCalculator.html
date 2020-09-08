@@ -15,18 +15,16 @@
     </head>
 
     <body>
+        <div class= "overallContainer">
+            <hr style="height:0.5px;border-width:0;color:gray;background-color:gray">
+            <p>This tool calculates the overall capacitance value for multiple capacitors connected either in series or in parallel.</p>
         <div class="container">
             <div class="wrapper">
                 <div class="howToUse">
-                    <ol>
-                        <li>Select Series or Parallel <mark class="colorPop">Capacitor</mark></li>
-                        <li>Select the number of <mark class="colorPop">Capacitors</mark> in the circuit</li>
-                        <li>Enter <mark class="colorPop">Capacitor</mark> Values</li>
-                    </ol>
+                    <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" class ="otherCalculatorButtons" target="_blank">See All Calculators &#8594</a>
                 </div>
-                <div class="resSetupParamsLabel">
-                    <p>No. Of Capacitors</p>
-                </div>
+                <br>
+              
                 <div class="resSetupParams">
                     <p>
                         <select id="noOfCapacitors" , name="noOfCapacitors" class="inputBoxRes2">
@@ -43,8 +41,9 @@
                     </p>
                     <div class="radio-container">
                         <input
-                            onclick="document.getElementById('headerImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel.png?v=1599385115',
-                            document.getElementById('calculationImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel-Calculation.png?v=1599386148'"
+                            onclick="document.getElementById('headerImage').src='/Images/Capacitors-In-Parallel.svg',
+                            document.getElementById('calculationImage').src='/Images/Parallel-Capacitor-Equation.svg',
+                            document.getElementById('configHeading').innerText = 'Parallel Capacitor'"
                             type="radio"
                             name="capType"
                             id="parallel"
@@ -54,8 +53,9 @@
                     </div>
                     <div class="radio-container">
                         <input
-                            onclick="document.getElementById('headerImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Series.png?v=1599385124',
-                            document.getElementById('calculationImage').src='https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Series-Calculation.png?v=1599386154'"
+                            onclick="document.getElementById('headerImage').src='/Images/Capacitors-In-Series.svg',
+                            document.getElementById('calculationImage').src='/Images/Series-Capacitor-Equation.svg',
+                            document.getElementById('configHeading').innerText = 'Series Capacitor'"
                             type="radio"
                             name="capType"
                             id="series"
@@ -68,143 +68,155 @@
                         <label>C1</label>
                         <input style="display: inline" type="number" id="c1" name="c1" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC1" , name="sizeSelectorC1" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C2paragraphSection">
                         <label>C2</label>
                         <input style="display: inline" type="number" id="c2" name="c2" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC2" , name="sizeSelectorC2" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C3paragraphSection" hidden>
                         <label>C3</label>
                         <input style="display: inline" type="number" id="c3" name="c3" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC3" , name="sizeSelectorC3" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C4paragraphSection" hidden>
                         <label>C4</label>
                         <input style="display: inline" type="number" id="c4" name="c4" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC4" , name="sizeSelectorC4" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C5paragraphSection" hidden>
                         <label>C5</label>
                         <input style="display: inline" type="number" id="c5" name="c5" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC5" , name="sizeSelectorC5" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C6paragraphSection" hidden>
                         <label>C6</label>
                         <input style="display: inline" type="number" id="c6" name="c6" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC6" , name="sizeSelectorC6" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C7paragraphSection" hidden>
                         <label>C7</label>
                         <input style="display: inline" type="number" id="c7" name="c7" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC7" , name="sizeSelectorC7" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C8paragraphSection" hidden>
                         <label>C8</label>
                         <input style="display: inline" type="number" id="c8" name="c8" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC8" , name="sizeSelectorC8" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C9paragraphSection" hidden>
                         <label>C9</label>
                         <input style="display: inline" type="number" id="c9" name="c9" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC9" , name="sizeSelectorC9" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="C10paragraphSection" hidden>
                         <label>C10</label>
                         <input style="display: inline" type="number" id="c10" name="c10" class="inputBoxRes" />
                         <select style="display: inline" id="sizeSelectorC10" , name="sizeSelectorC10" class="sizeSelector">
-                            <option value="1">pF</option>
-                            <option value="2">nF</option>
                             <option value="3">µF</option>
                             <option value="4">mF</option>
                             <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                 </div>
+                <div class="calculationResult">
+                    <div class="OutputResultFormatting" >=</div>
+                    <div class="OutputResultFormatting" id="resultOut2"></div>
+                </div>
+                <div class="learnButtonsMobile">
+                    <a href="https://www.ko-bee.com/blogs/electronic-basics/series-and-parallel-capacitance" class ="learnButtons" target="_blank" >Learn More &#8594</a>
+                </div>
             </div>
             <div class="sideBanner">
-                <p>This tool calculates the overall capacitance value for multiple capacitors connected either in series or in parallel.</p>
-                <img id="headerImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel.png?v=1599385115" width="100%" />
-                <p>You may want to increase your understanding by using the equation below:</p>
-                <img id="calculationImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Resistors-In-Parallel-Calculation.png?v=1599386148" width="100%"/>
-            </div>
+                <div class ="sideBannerBox">
+                    <p style="font-size:large" id="configHeading">Parallel Capacitor</p>
+                    <img id="headerImage" src="Images/Resistors-In-Parallel.svg" width="80%" />
+                </div>
+                <div class="sideBannerBox">
+                    <p>Applicable Calculation found below. Click the link to learn more about series and parallel resistors</p>
+                    <img id="calculationImage" src="Images/Parallel-Capacitor-Equation.svg" width="50%" />
+                    <br>
+                    <a href="https://www.ko-bee.com/blogs/electronic-basics/series-and-parallel-capacitance" class ="learnButtons" target="_blank">Learn More &#8594</a>
+                </div>
+                </div>
         </div>
-        <div class="calculationResult">
-            <h3>Equivalent Capacitance:</h3>
-            <div class="OutputResultFormatting" id="resultOut2"></div>
-        </div>
-        <div class="OtherCalculatorsText"><h2>Other Calculators:</h2></div>
+
+        <div class="OtherCalculatorsText"><p>Other Calculators:</p></div>
         <div class="otherCalculators">
-            <p>
-                <a href="https://www.ko-bee.com/pages/series-and-parallel-resistor-calculator"
-                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Series-Parallel-Equivalent-Resistors.png?v=1599378137" width="90%"
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Series-And-Parallel-Resistors.svg" width="90%" target="_blank"
                 /></a>
             </p>
-            <p>
-                <a href="https://www.ko-bee.com/pages/voltage-divider-calculator"><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/Voltage-Divider.png?v=1599384007" width="90%" /></a>
-            </p>
-            <p>
-                <a href="https://www.ko-bee.com/pages/led-series-resistor-calculator"
-                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/LED-Series-Resistor.png?v=1599384000" width="90%"
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/voltage-divider-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Voltage-Divider.svg" width="90%" target="_blank"
                 /></a>
             </p>
-            <p>
-                <a href="https://www.ko-bee.com/pages/all-calculators"
-                    ><img class="otherCalculatorsImage" src="https://cdn.shopify.com/s/files/1/0452/2564/0087/files/All-Calculators.png?v=1599388417" width="90%"
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/led-series-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/LED-Series-Resistor.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/All-Calculators.svg" width="90%" target="_blank"
                 /></a>
             </p>
         </div>

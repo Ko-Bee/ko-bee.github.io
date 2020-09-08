@@ -280,13 +280,16 @@ function inputConvert(x, y) {
             return x
             break;
         case "2":
-            return x / 1000000000;
+            x = x / 1000000000;
+            return x
             break;
         case "3":
-            return x / 1000000;
+            x = x / 1000000;
+            return x
             break;
         case "4":
-            return x * 1000;
+            x = x / 1000;
+            return x
             break;
         case "5":
             return x;
