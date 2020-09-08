@@ -68,6 +68,7 @@ html {
     border-radius: 100px;
 }
 
+
 .outputBoxRes {
     border-radius: 0px;
     padding: 0px 0px;
@@ -324,6 +325,7 @@ input[type="radio"]:checked + label:before {
     text-decoration: none;
     align-content: space-between;
     min-width: 200px;
+    max-width: 200px;
 }
 
 .learnButtons:hover {
