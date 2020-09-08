@@ -192,8 +192,10 @@ label {
     grid-column-gap: 20px;
     align-content: center;
     align-items: center;
+}
 
-
+.inputBoxRes:focus {
+    outline-color: #fed700 ;
 }
 
 .resSetupParamsLabel {
@@ -218,7 +220,7 @@ input[type="radio"] {
 
 .radio-label {
     position: relative;
-    color: #fed700;
+    color: #4E5153;
     font-size: 10x;
     border: 0.5px solid #fed700;
     border-radius: 50px;
@@ -238,7 +240,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked + label {
     background-color: #fed700;
-    color: white;
+    color: #4E5153;
 }
 
 input[type="radio"]:checked + label:before {
@@ -246,7 +248,7 @@ input[type="radio"]:checked + label:before {
     width: 10px;
     border: 10px solid white;
     background-color: #fed700;
-    color: white;
+    color: #4E5153;
 
 }
 
@@ -328,6 +330,16 @@ input[type="radio"]:checked + label:before {
     max-width: 200px;
 }
 
+.learnButtonsMobile {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-right: 35px;
+    margin-bottom: 10px;
+    display:none
+}
+
 .learnButtons:hover {
     background-color: white;;  
 }
@@ -347,6 +359,27 @@ input[type="radio"]:checked + label:before {
 ::placeholder {
     color: #CCCCCC;
 }
+
+a:link {
+    text-decoration: none;
+    color: #4E5153;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #4E5153;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #4E5153;
+}
+
+a:active {
+    text-decoration: none;
+    color: #4E5153;
+}
+
 
 
 
@@ -403,5 +436,14 @@ input[type="radio"]:checked + label:before {
         max-width: 100%;
         cursor: pointer;
         text-align: center;
+    }
+
+    .learnButtonsMobile {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin-right: 35px;
+        margin-bottom: 10px;
     }
 }
