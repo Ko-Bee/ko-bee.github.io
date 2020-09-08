@@ -1,16 +1,43 @@
-computeValue();
-document.getElementById("radioNoLoad").addEventListener("click", computeValue);
-document.getElementById("radioAcrossLoad").addEventListener("click", computeValue);
+document.getElementById("radioNoLoad").addEventListener("click", clearAllValues);
+document.getElementById("radioAcrossLoad").addEventListener("click", clearAllValues);
+document.getElementById("r1").addEventListener("input", computeValue);
+document.getElementById("r2").addEventListener("input", computeValue);
+document.getElementById("rl").addEventListener("input", computeValue);
+document.getElementById("vin").addEventListener("input", computeValue);
+document.getElementById("r1").addEventListener("select", computeValue);
+document.getElementById("r2").addEventListener("select", computeValue);
+document.getElementById("rl").addEventListener("select", computeValue);
+document.getElementById("vin").addEventListener("select", computeValue);
+document.getElementById("sizeSelectorR1").addEventListener("click", computeValue);
+document.getElementById("sizeSelectorR2").addEventListener("click", computeValue);
+document.getElementById("sizeSelectorRl").addEventListener("click", computeValue);
 
 
 
 
+function clearAllValues(){
+    document.getElementById("vin").value='';
+    document.getElementById("r2").value='';
+    document.getElementById("r1").value='';
+    document.getElementById("rl").value='';
+    document.getElementById("noLoadResult").innerText = '';
+    document.getElementById("voltageOutputResult").innerText = '';
+    document.getElementById("powerBySupplyResult").innerText = '';
+    document.getElementById("powerToLoadResult").innerText = '';
+    document.getElementById("lossResultResult").innerText = '';
+}
 
-
-
+function clearAllValues2(){
+    document.getElementById("noLoadResult").innerText = '';
+    document.getElementById("voltageOutputResult").innerText = '';
+    document.getElementById("powerBySupplyResult").innerText = '';
+    document.getElementById("powerToLoadResult").innerText = '';
+    document.getElementById("lossResultResult").innerText = '';
+}
 
 
 function computeValue() {
+    clearAllValues2()
     var radioSelection = document.getElementById("radioNoLoad").checked;
     switch(radioSelection) {
         case true:
