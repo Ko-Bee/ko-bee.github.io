@@ -68,6 +68,83 @@ html {
     border-radius: 100px;
 }
 
+.calculationResultHalf {
+    max-width: 1100px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: #fed700;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    text-align: center;
+    min-height: 0px;
+    border-radius: 100px;
+    padding: 0%
+}
+
+.calculationResultHalf2 {
+    max-width: 800px;
+    margin-left: 10px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fed700;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    text-align: center;
+    min-height: 20px;
+    border-radius: 100px;
+}
+
+.numberCircle {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    padding: 4px;
+    margin-top: 5px;
+    margin-left: 0px;
+    background: #fff;
+    color: #666;
+    text-align: center;
+    margin-right: 50px;
+    font: 15px Arial, sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+.numberCircle .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #ECEFF1;
+    color: #4E5153;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  
+  .numberCircle .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #ECEFF1 transparent transparent;
+  }
+
+  .numberCircle:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .numberCircle:hover {
+    border: 0.5px solid #4E5153;
+  }
 
 .outputBoxRes {
     border-radius: 0px;
@@ -143,7 +220,7 @@ mark.colorPop {
 
 .resistorInput {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     grid-column-gap: 20px;
     align-content: center;
 }
@@ -161,10 +238,20 @@ mark.colorPop {
 .inputBoxRes2 {
     border-radius: 6px;
     padding: 8px 11px;
-    background-color: #white;
+    background-color: white;
     border: 0.5px solid #CCCCCC;
     color: #4e5153;
     width: 100%;
+    font-weight: normal;
+}
+
+.inputBoxRes3 {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: white;
+    border: 0.5px solid #CCCCCC;
+    color: #4e5153;
+    width: 85%;
     font-weight: normal;
 }
 
@@ -356,6 +443,7 @@ input[type="radio"]:checked + label:before {
     text-align: center;
 }
 
+
 ::placeholder {
     color: #CCCCCC;
 }
@@ -426,7 +514,7 @@ a:active {
 
     .radio-label {
         position: relative;
-        color: #fed700;
+        color: #4E5153;
         font-size: 10x;
         border: 2px solid #fed700;
         border-radius: 50px;
