@@ -42,6 +42,7 @@ html {
     grid-column-gap: 0px;
     margin-bottom: 10px;
     border-radius: 10px;
+    margin-top: 0%;
 }
 
 .hrStyle{
@@ -71,7 +72,7 @@ html {
 .calculationResultHalf {
     max-width: 1100px;
     margin-left: 10px;
-    margin-right: 50px;
+    margin-right: 30px;
     margin-top: 0;
     margin-bottom: 0;
     background: #fed700;
@@ -225,6 +226,18 @@ mark.colorPop {
     align-content: center;
 }
 
+.resistorInput2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 20px;
+    align-content: center;
+    border: 0.5px solid #CCCCCC;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
 .inputBoxRes {
     border-radius: 6px;
     padding: 8px 11px;
@@ -254,6 +267,15 @@ mark.colorPop {
     width: 85%;
     font-weight: normal;
 }
+.inputBoxRes4 {
+    border-radius: 6px;
+    padding: 8px 11px;
+    background-color: white;
+    border: 0.5px solid #CCCCCC;
+    color: #4e5153;
+    width: 40%;
+    font-weight: normal;
+}
 
 .sizeSelector {
     border-radius: 6px;
@@ -264,6 +286,16 @@ mark.colorPop {
     width: 25%;
     font-weight: normal;
 }
+
+.sizeSelector2 {
+    border-radius: 6px;
+    padding: 8px 11px;
+    border: 0.5px solid #CCCCCC;
+    width: 80%;
+    font-weight: bold;
+    color:white;
+}
+
 
 input,
 label {
@@ -466,6 +498,25 @@ a:hover {
 a:active {
     text-decoration: none;
     color: #4E5153;
+}
+
+a.colorPopLink:link {
+    color: #FED700;
+    text-decoration: underline;
+}
+
+a.colorPopLink:visited {
+    color: #FED700;
+    text-decoration: underline;
+}
+
+a.colorPopLink:hover {
+    color: #FED700;
+    font-weight: bold;
+}
+
+a.colorPopLink:active {
+    color: #FED700;
 }
 
 
