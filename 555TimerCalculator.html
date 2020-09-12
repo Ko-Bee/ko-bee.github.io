@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Form Example</title>
+        <title>555 Timer</title>
         <link href="resistorCalculator.css" rel="stylesheet" />
-        <script src="voltageDividerCalculator.js" defer></script>
+        <script src="555TimerCalculator.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
         <script>
             function resizeIframe(obj) {
@@ -29,42 +29,37 @@
                 <div class="resSetupParams">
                     <div class="radio-container">
                         <input
-                            onclick="document.getElementById('headerImage').src='/Images/No-Load-Voltage-Divider.svg',
+                            onclick="document.getElementById('headerImage').src='/Images/555-Monostable.svg',
                             document.getElementById('calculationImage').src='/Images/No-Load-Voltage-Divider-Equation.svg',
-                            document.getElementById('configHeading').innerText = 'Voltage Divider - No Load',
+                            document.getElementById('configHeading').innerText = 'Monostable Circuit',
                             document.getElementById('RlparagraphSection').style.display = 'none',
                             document.getElementById('fullResultOutSection').style.display= 'block',
                             document.getElementById('halfResultOutSection').style.display= 'none',
                             document.getElementById('lossResultLabel').style.display= 'block'"
                             type="radio"
                             name="resType"
-                            id="radioNoLoad"
+                            id="monostable"
                             checked="checked"
                         />
-                        <label class="radio-label" for="radioNoLoad">No Load</label>
+                        <label class="radio-label" for="monostable">Monostable</label>
                     </div>
                     <div class="radio-container">
                         <input
-                            onclick="document.getElementById('headerImage').src='/Images/Load-Voltage-Divider.svg',
+                            onclick="document.getElementById('headerImage').src='/Images/555-Astable.svg',
                             document.getElementById('calculationImage').src='/Images/Load-Voltage-Divider-Equation.svg',
-                            document.getElementById('configHeading').innerText = 'Voltage Divider - Across Load',
+                            document.getElementById('configHeading').innerText = 'Astable Circuit',
                             document.getElementById('RlparagraphSection').style.display = 'block',
                             document.getElementById('fullResultOutSection').style.display= 'none',
                             document.getElementById('halfResultOutSection').style.display= 'block',
                             document.getElementById('lossResultLabel').style.display= 'none'"
                             type="radio"
                             name="resType"
-                            id="radioAcrossLoad"
+                            id="astable"
                         />
-                        <label class="radio-label" for="radioAcrossLoad">Across Load</label>
+                        <label class="radio-label" for="astable">Astable</label>
                     </div>
                 </div>
                 <div class="resistorInput">
-                    <p id="vinparagraphSection">
-                        <label>Voltage Input (Vin)</label>
-                        <input style="display: inline" type="number" id="vin" name="vin" class="inputBoxRes3" placeholder="Enter Voltage (V)" />
-
-                    </p>
                     <p id="R1paragraphSection">
                         <label>R1</label>
                         <input style="display: inline" type="number" id="r1" name="r1" class="inputBoxRes" placeholder="Enter Resistor 1"/>
@@ -75,18 +70,20 @@
                         </select>
                     </p>
                     <p id="R2paragraphSection">
-                        <label>R2</label>
-                        <input style="display: inline" type="number" id="r2" name="r2" class="inputBoxRes" placeholder="Enter Resistor 2"/>
-                        <select style="display: inline" id="sizeSelectorR2" , name="inputR2" class="sizeSelector">
-                            <option value="1">Ω</option>
-                            <option value="2">kΩ</option>
-                            <option value="3">MΩ</option>
+                        <label>C1</label>
+                        <input style="display: inline" type="number" id="c1" name="c1" class="inputBoxRes" placeholder="Enter Capacitor 1"/>
+                        <select style="display: inline" id="sizeSelectorC1" , name="inputC1" class="sizeSelector">
+                            <option value="3">µF</option>
+                            <option value="4">mF</option>
+                            <option value="5">F</option>
+                            <option value="2">nF</option>
+                            <option value="1">pF</option>
                         </select>
                     </p>
                     <p id="RlparagraphSection" hidden>
-                        <label>Load Resistance (RL) </label>
-                        <input style="display: inline" type="number" id="rl" name="rl" class="inputBoxRes" placeholder="Enter Load Resistor"/>
-                        <select style="display: inline" id="sizeSelectorRl" , name="inputRl" class="sizeSelector">
+                        <label>R2</label>
+                        <input style="display: inline" type="number" id="r2" name="r2" class="inputBoxRes" placeholder="Enter Resistor 2"/>
+                        <select style="display: inline" id="sizeSelectorR2" , name="inputR2" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
@@ -97,40 +94,40 @@
                 <div id="halfResultOutSection" hidden>
                 <div class="resistorInput2">
                     <div style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
-                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Output Circuit Voltage:</p>
+                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Time High:</p>
                         <div class="calculationResultHalf" >
                             <div class="OutputResultFormatting" >=</div>
-                            <div class="OutputResultFormatting" id="voltageOutputResult"></div>
+                            <div class="OutputResultFormatting" id="timeHighResult"></div>
                             <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
                                 <span class="tooltiptext">Tooltip text</span>
                             </a>
                         </div>
                     </div>
                     <div style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
-                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Power Supplied by Supply:</p>
+                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Time Low:</p>
                         <div class="calculationResultHalf" >
                             <div class="OutputResultFormatting" >=</div>
-                            <div class="OutputResultFormatting" id="powerBySupplyResult"></div>
+                            <div class="OutputResultFormatting" id="timeLowResult"></div>
                             <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
                                 <span class="tooltiptext">Tooltip text</span>
                             </a>
                         </div>
                     </div>
                     <div style="display: inline-flex; align-content: flex-end;  flex-direction: column; margin-bottom: 0%;">
-                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Power Delivered to Load:</p>
+                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Frequency:</p>
                         <div class="calculationResultHalf" >
                             <div class="OutputResultFormatting" >=</div>
-                            <div class="OutputResultFormatting" id="powerToLoadResult"></div>
+                            <div class="OutputResultFormatting" id="frequencyResult"></div>
                             <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
                                 <span class="tooltiptext">Tooltip text</span>
                             </a>
                         </div>
                     </div>
                     <div style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
-                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Power Loss Percentage:</p>
+                        <p style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Duty Cycle Percentage:</p>
                         <div class="calculationResultHalf" >
                             <div class="OutputResultFormatting" >=</div>
-                            <div class="OutputResultFormatting" id="lossResultResult"></div>
+                            <div class="OutputResultFormatting" id="dutyCyclePercentageResult"></div>
                             <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
                                 <span class="tooltiptext">Tooltip text</span>
                             </a>
@@ -140,10 +137,10 @@
                 </div>
                 </div>
                 <div id="fullResultOutSection">
-                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Vout:</p>
+                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Time Out Delay:</p>
                     <div class="calculationResultHalf2">
                         <div class="OutputResultFormatting" >=</div>
-                        <div class="OutputResultFormatting" id="noLoadResult"></div>
+                        <div class="OutputResultFormatting" id="timeOutDelay"></div>
                         <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
                             <span class="tooltiptext">Tooltip text</span>
                         </a>
@@ -152,8 +149,8 @@
             </div>
             <div class="sideBanner">
                 <div class ="sideBannerBox">
-                    <p style="font-size:large" id="configHeading">Voltage Divider - No Load</p>
-                    <img id="headerImage" src="/Images/No-Load-Voltage-Divider.svg" width="80%" />
+                    <p style="font-size:large" id="configHeading">Monostable Circuit</p>
+                    <img id="headerImage" src="/Images/555-Monostable.svg" width="80%" />
                 </div>
                 <div class="sideBannerBox">
                     <p>Applicable Calculation found below. Click the link to learn more about voltage divider circuits</p>

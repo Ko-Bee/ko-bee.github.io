@@ -284,7 +284,7 @@ function inputConvert(x, y) {
             break;
         case "3":
             return x * 1000000;
-            return;
+            break;
     }
 }
 
