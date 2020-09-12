@@ -31,7 +31,7 @@ function validateSeriesVin(){
     var forwardVoltage = document.getElementById("Vf").value;
     var radioSelection = document.getElementById("series").checked;
     var paraVoltage = parseInt(forwardVoltage)+0.5;
-    console.log(paraVoltage);
+    // console.log("in vin vali");
     switch(radioSelection){
         case true:
             if(noOfLEDs=="") {
@@ -56,6 +56,7 @@ function validateSeriesVin(){
                     clearAlerts();
                 }
                 else if((Vin-(forwardVoltage*noOfLEDs))>0){
+                    // console.log("validateSeriesVin -> noOfLEDs", noOfLEDs)
                     clearAlerts();
                 }
                 else if(isNaN(Vin)){
@@ -77,6 +78,7 @@ function validateSeriesVin(){
                 }
                 break;
         default :
+        // console.log("in vin vali para");
                 if(isNaN(Vin)){
                     document.getElementById('vinAlertBody').innerText = 'Must be a positive number';
                     document.getElementById('vinAlertArrow').style.display = 'block';
@@ -96,9 +98,10 @@ function validateSeriesVin(){
                     document.getElementById('vinAlertArrow').style.display = 'block';
                     document.getElementById('vinAlertBody').style.display = 'block';
                 }
-                else if(Vin>=paraVoltage){
-                    clearAlerts();
-                }
+//                else if(Vin>=paraVoltage){
+//                    clearAlerts();
+//                }
+                break;
 
                 }
 
@@ -109,6 +112,7 @@ function validateSeriesNoOfLEDs(){
     var noOfLEDs = document.getElementById("ledNO").value;
     var forwardVoltage = document.getElementById("Vf").value;
     var radioSelection = document.getElementById("series").checked;
+    // console.log("in no, of leds");
     switch(radioSelection){
         case true:
             if(Vin=="") {
@@ -150,6 +154,8 @@ function validateSeriesNoOfLEDs(){
                 }
         default :
             // this is where parallel goes
+            // console.log("in no of leds default");
+                break;
     }
 }
 
@@ -159,6 +165,7 @@ function validateSeriesIforward(){
     var forwardVoltage = document.getElementById("Vf").value;
     var forwardCurrent = document.getElementById("iForward").value;
     var radioSelection = document.getElementById("series").checked;
+    // console.log("in vali if");
     switch(radioSelection){
         case true:
             if(isNaN(forwardCurrent)){
@@ -191,6 +198,7 @@ function validataSeriesVF(){
     var forwardVoltage = document.getElementById("Vf").value;
     var forwardCurrent = document.getElementById("iForward").value;
     var radioSelection = document.getElementById("series").checked;
+    // console.log("in vali vf");
     switch(radioSelection){
         case true:
             if(isNaN(forwardVoltage)){
@@ -228,6 +236,7 @@ function validataSeriesVF(){
 }
 
 function clearAlerts(){
+    // console.log("clear alerts");
     document.getElementById('vinAlertArrow').style.display = 'none';
     document.getElementById('vinAlertBody').style.display = 'none';
     document.getElementById('noOfLEDsAlertBody').style.display = 'none';
@@ -316,13 +325,17 @@ function calculateValues (){
     var ledForwardCurrent = document.getElementById("iForward").value / 1000;
     var noOfLEDs = document.getElementById("ledNO").value;
     var remainingVoltage = Vin-(noOfLEDs*ledForwardVoltage);
-    if(noOfLEDs!="" && Vin!="" && ledForwardCurrent!="" && remainingVoltage>=0)
-    {
+    // console.log(remainingVoltage);
+    // console.log("in calc values");
     switch(radioSelection) {
         case true:
+            // console.log("in series < if");
+            if(noOfLEDs!="" && Vin!="" && ledForwardCurrent!="" && remainingVoltage>=0)
+            {
+            // console.log("in series");
             var remainingVoltage = Vin-(noOfLEDs*ledForwardVoltage);
             var rawResistorValue = (remainingVoltage / ledForwardCurrent);
-            var standardResistorValueResult = standardResistorValues[findNextHighest(standardResistorValues, 1.10*rawResistorValue)];
+            var standardResistorValueResult = standardResistorValues[findNextHighest(standardResistorValues, 1.05*rawResistorValue)];
             var actualResistorCurrent = (remainingVoltage / standardResistorValueResult);
             var resistorPowerDissipation = remainingVoltage * actualResistorCurrent;
             var reccomendedResistorPower = wattageRecommendation(resistorPowerDissipation);
@@ -336,24 +349,65 @@ function calculateValues (){
             document.getElementById("wattageRecommendationResult").innerText = (reccomendedResistorPower) + " W";
             document.getElementById("circuitTotalWattageResult").innerText = (Math.round(((totalPower*1000) + Number.EPSILON) * 10)/10) + " mW";
             document.getElementById("powerDissipatedLEDResult").innerText = (Math.round(((LEDPowerDissipation*1000) + Number.EPSILON) * 10)/10) + " mW";
-            console.log("remainingVoltage= " + remainingVoltage);
-            console.log("remainingVoltage= " + rawResistorValue);
-            console.log("standardResValue= " + standardResistorValueResult);
+            // console.log("remainingVoltage= " + remainingVoltage);
+            // console.log("resistor= " + rawResistorValue);
+            // console.log("standardResValue= " + standardResistorValueResult);
+            }
+            else
+            {
+                document.getElementById("exactCalculatedResistorResult").innerText='';
+                document.getElementById("nearestStandardResistorResult").innerText='';
+                document.getElementById("actualCurrentThroughLEDResult").innerText='';
+                document.getElementById("circuitTotalCurrentResult").innerText='';
+                document.getElementById("powerDissipatedResistorResult").innerText='';
+                document.getElementById("wattageRecommendationResult").innerText='';
+                document.getElementById("circuitTotalWattageResult").innerText='';
+                document.getElementById("powerDissipatedLEDResult").innerText='';
+            }
+            break;
+        default:
+            var remainingVoltagePara = Vin-(parseInt(ledForwardVoltage)+0.5);
+            console.log(remainingVoltagePara);
+            // console.log("in parallel<vf");
+            if(noOfLEDs!="" && Vin!="" && ledForwardCurrent!="" && remainingVoltagePara>=0)
+            {
+            // console.log("in parallel");
+            var remainingVoltage = Vin-ledForwardVoltage;
+            var rawResistorValue = (remainingVoltage / (ledForwardCurrent*noOfLEDs));
+            var standardResistorValueResult = standardResistorValues[findNextHighest(standardResistorValues, 1.05*rawResistorValue)];
+            var actualResistorCurrent = (remainingVoltage / standardResistorValueResult);
+            var resistorPowerDissipation = remainingVoltage * actualResistorCurrent;
+            var reccomendedResistorPower = wattageRecommendation(resistorPowerDissipation);
+            var totalPower = (actualResistorCurrent) + resistorPowerDissipation;
+            var LEDPowerDissipation = actualResistorCurrent * ledForwardVoltage;
+            document.getElementById("exactCalculatedResistorResult").innerText = (Math.round(((rawResistorValue) + Number.EPSILON) * 10)/10) + " Ω";
+            document.getElementById("nearestStandardResistorResult").innerText = standardResistorValueResult + " Ω";
+            document.getElementById("actualCurrentThroughLEDResult").innerText = (Math.round((((actualResistorCurrent/noOfLEDs)*1000) + Number.EPSILON) * 10)/10) + " mA";
+            document.getElementById("circuitTotalCurrentResult").innerText = (Math.round(((actualResistorCurrent*1000) + Number.EPSILON) * 10)/10) + " mA";
+            document.getElementById("powerDissipatedResistorResult").innerText = (Math.round(((resistorPowerDissipation*1000) + Number.EPSILON) * 10)/10) + " mW";
+            document.getElementById("wattageRecommendationResult").innerText = (reccomendedResistorPower) + " W";
+            document.getElementById("circuitTotalWattageResult").innerText = (Math.round(((totalPower*1000) + Number.EPSILON) * 10)/10) + " mW";
+            document.getElementById("powerDissipatedLEDResult").innerText = (Math.round(((LEDPowerDissipation*1000) + Number.EPSILON) * 10)/10) + " mW";
+            // console.log("remainingVoltage= " + remainingVoltage);
+            // console.log("resistor= " + rawResistorValue);
+            // console.log("standardResValue= " + standardResistorValueResult);
+            }
+            else
+            {
+                document.getElementById("exactCalculatedResistorResult").innerText='';
+                document.getElementById("nearestStandardResistorResult").innerText='';
+                document.getElementById("actualCurrentThroughLEDResult").innerText='';
+                document.getElementById("circuitTotalCurrentResult").innerText='';
+                document.getElementById("powerDissipatedResistorResult").innerText='';
+                document.getElementById("wattageRecommendationResult").innerText='';
+                document.getElementById("circuitTotalWattageResult").innerText='';
+                document.getElementById("powerDissipatedLEDResult").innerText='';
+            }
+            break;
     }
 }
-    else
-    {
-        document.getElementById("exactCalculatedResistorResult").innerText='';
-        document.getElementById("nearestStandardResistorResult").innerText='';
-        document.getElementById("actualCurrentThroughLEDResult").innerText='';
-        document.getElementById("circuitTotalCurrentResult").innerText='';
-        document.getElementById("powerDissipatedResistorResult").innerText='';
-        document.getElementById("wattageRecommendationResult").innerText='';
-        document.getElementById("circuitTotalWattageResult").innerText='';
-        document.getElementById("powerDissipatedLEDResult").innerText='';
 
-    }
-}
+
 
 
 
@@ -374,7 +428,10 @@ function wattageRecommendation(x){
     else if(x>=250 && x <500) {
         return "1/2"
     }
-    else{
+    else if(x>=500 && x <1000) {
         return "1"
+    }
+    else{
+        return "2"
     }
 }
