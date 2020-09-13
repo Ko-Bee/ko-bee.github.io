@@ -16,9 +16,8 @@
 
     <body>
         <div class= "overallContainer">
-            <p style="margin-top: 0px; margin-bottom: 10px">Use the calculator below to find the output voltage for a given set of resistors and a given input voltage. The calculator can also calculate voltage across a connected load and the total power loss in the system </p>
-            <p style="margin-top: 0px; margin-bottom: 10px">Voltage divider circuits is a common circuit produces an output voltage that is lower than the input voltage dependent on the ratio of resistors used </p>
-            <p style="margin-top: 0px; margin-bottom: 10px">Click the learn more button below to <a href = "https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="colorPopLink" target = "blank">learn all about voltage divider circuits</a>, when and how theyre used and their deficiencies </pstyle="margin-top: 0.5px;">
+            <p style="margin-top: 0px; margin-bottom: 10px">Use the calculator below to find the output paramaters for Monostable and Astable 555 timer circuits for given resistor and capacitor inputs</p>
+            <p style="margin-top: 0px; margin-bottom: 10px">Click the learn more button below to <a href = "https://www.ko-bee.com/blogs/555-timer/555-timer" class="colorPopLink" target = "blank">learn all 555 timer circuits</a></p style="margin-top: 0.5px;">
         <div class="container">
             <div class="wrapper">
                 <div class="howToUse">
@@ -30,7 +29,7 @@
                     <div class="radio-container">
                         <input
                             onclick="document.getElementById('headerImage').src='/Images/555-Monostable.svg',
-                            document.getElementById('calculationImage').src='/Images/No-Load-Voltage-Divider-Equation.svg',
+                            document.getElementById('calculationImage').src='/Images/555-Monostable-Equation.svg',
                             document.getElementById('configHeading').innerText = 'Monostable Circuit',
                             document.getElementById('RlparagraphSection').style.display = 'none',
                             document.getElementById('fullResultOutSection').style.display= 'block',
@@ -46,7 +45,7 @@
                     <div class="radio-container">
                         <input
                             onclick="document.getElementById('headerImage').src='/Images/555-Astable.svg',
-                            document.getElementById('calculationImage').src='/Images/Load-Voltage-Divider-Equation.svg',
+                            document.getElementById('calculationImage').src='/Images/555-Astable-Equation.svg',
                             document.getElementById('configHeading').innerText = 'Astable Circuit',
                             document.getElementById('RlparagraphSection').style.display = 'block',
                             document.getElementById('fullResultOutSection').style.display= 'none',
@@ -62,16 +61,18 @@
                 <div class="resistorInput">
                     <p id="R1paragraphSection">
                         <label>R1</label>
-                        <input style="display: inline" type="number" id="r1" name="r1" class="inputBoxRes" placeholder="Enter Resistor 1"/>
+                        <input style="display: inline" type="text" id="r1" name="r1" class="inputBoxRes" placeholder="Enter Resistor 1"/>
                         <select style="display: inline" id="sizeSelectorR1" , name="inputR1" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
+                        <label id="r1AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="r1AlertBody" class="validationAlertBox"></label>
                     </p>
                     <p id="R2paragraphSection">
                         <label>C1</label>
-                        <input style="display: inline" type="number" id="c1" name="c1" class="inputBoxRes" placeholder="Enter Capacitor 1"/>
+                        <input style="display: inline" type="text" id="c1" name="c1" class="inputBoxRes" placeholder="Enter Capacitor 1"/>
                         <select style="display: inline" id="sizeSelectorC1" , name="inputC1" class="sizeSelector">
                             <option value="3">µF</option>
                             <option value="4">mF</option>
@@ -79,15 +80,19 @@
                             <option value="2">nF</option>
                             <option value="1">pF</option>
                         </select>
+                        <label id="c1AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="c1AlertBody" class="validationAlertBox"></label>
                     </p>
                     <p id="RlparagraphSection" hidden>
                         <label>R2</label>
-                        <input style="display: inline" type="number" id="r2" name="r2" class="inputBoxRes" placeholder="Enter Resistor 2"/>
+                        <input style="display: inline" type="text" id="r2" name="r2" class="inputBoxRes" placeholder="Enter Resistor 2"/>
                         <select style="display: inline" id="sizeSelectorR2" , name="inputR2" class="sizeSelector">
                             <option value="1">Ω</option>
                             <option value="2">kΩ</option>
                             <option value="3">MΩ</option>
                         </select>
+                        <label id="r2AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="r2AlertBody" class="validationAlertBox"></label>
                     </p>
                     
                 </div>
@@ -153,10 +158,10 @@
                     <img id="headerImage" src="/Images/555-Monostable.svg" width="80%" />
                 </div>
                 <div class="sideBannerBox">
-                    <p>Applicable Calculation found below. Click the link to learn more about voltage divider circuits</p>
-                    <img id="calculationImage" src="/Images/No-Load-Voltage-Divider-Equation.svg" width="35%" />
+                    <p>Applicable Calculation found below. Click the link to learn more about 555 timer circuits</p>
+                    <img id="calculationImage" src="/Images/555-Monostable-Equation.svg" width="35%" />
                     <br>
-                    <a style="margin-top: 10px;" href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class ="learnButtons" target="_blank">Learn More &#8594</a>
+                    <a style="margin-top: 10px;" href="https://www.ko-bee.com/blogs/555-timer/555-timer" class ="learnButtons" target="_blank">Learn More &#8594</a>
                 </div>
                 </div>
         </div>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ohms Law Calculator</title>
+        <link href="resistorCalculator.css" rel="stylesheet" />
+        <script src="ohmsLawCalculator.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + "px";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class= "overallContainer">
+            <p style="margin-top: 0px; margin-bottom: 10px">Use the calculator below to find the output paramaters for Monostable and Astable 555 timer circuits for given resistor and capacitor inputs</p>
+            <p style="margin-top: 0px; margin-bottom: 10px">Click the learn more button below to <a href = "https://www.ko-bee.com/blogs/555-timer/555-timer" class="colorPopLink" target = "blank">learn all 555 timer circuits</a></p style="margin-top: 0.5px;">
+        <div class="container">
+            <div class="wrapper">
+                <div class="howToUse">
+                    <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" class ="otherCalculatorButtons" target="_blank">See All Calculators &#8594</a>
+                </div>
+                <div class="resistorInput">
+                    <p id="VINparagraphSection">
+                        <label id="vLabel">Voltage</label>
+                        <input style="display: inline" type="text" id="vin" name="vin" class="inputBoxRes5" placeholder="Enter Voltage"/>
+                        <span id="vlabel2" class="valueSpan" style="display: inline">&nbsp;&nbsp;V&nbsp;</span>
+                        <label id="VAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="VAlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="R1paragraphSection">
+                        <label id="rLabel">Resistance</label>
+                        <input style="display: inline" type="text" id="r1" name="r1" class="inputBoxRes" placeholder="Enter Resistance"/>
+                        <select style="display: inline" id="sizeSelectorR1" , name="inputR1" class="sizeSelector">
+                            <option value="1">Ω</option>
+                            <option value="2">kΩ</option>
+                            <option value="3">MΩ</option>
+                        </select>
+                        <label id="r1AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="r1AlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="IparagraphSection">
+                        <label id="iLabel">Current</label>
+                        <input style="display: inline" type="text" id="iin" name="iin" class="inputBoxRes" placeholder="Enter Current"/>
+                        <select style="display: inline" id="sizeSelectorI" , name="inputR2" class="sizeSelector">
+                            <option value="1">mA</option>
+                            <option value="2">A</option>
+                        </select>
+                        <label id="IAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="IAlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="PparagraphSection">
+                        <label id="pLabel">Power</label>
+                        <input style="display: inline" type="text" id="pin" name="pin" class="inputBoxRes" placeholder="Enter Power"/>
+                        <select style="display: inline" id="sizeSelectorP" , name="inputR2" class="sizeSelector">
+                            <option value="1">W</option>
+                            <option value="2">kW</option>
+                        </select>
+                        <label id="PAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="PAlertBody" class="validationAlertBox"></label>
+                    </p>
+                    </div>
+                    <div id="errorClearButtonDiv" style="display: flex; justify-content: center; margin-bottom: 10px;"><button id="errorClearButton" class="errorButtonStyle">Input a maximum of 2 variables only. Click here to clear and try again</button></div>
+                    <div id="halfResultOutSection">
+                        <div style="font-size: medium; text-align: center;">Results</div>
+                <div class="resistorInput2">
+                    <div  style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
+                        <p id="voltageResultP" style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Voltage:</p>
+                        <div id="voltageResultDiv" class="calculationResultHalf" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="voltageResult"></div>
+                        </div>
+                    </div>
+                    <div style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
+                        <p id="resistanceResultP" style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 0%;">Resistance:</p>
+                        <div id="resistanceResultDiv" class="calculationResultHalf" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="resistanceResult"></div>
+                        </div>
+                    </div>
+                    <div style="display: inline-flex; align-content: flex-end;  flex-direction: column; margin-bottom: 0%;">
+                        <p id="currentResultP" style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Current:</p>
+                        <div id="currentResultDiv" class="calculationResultHalf" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="currentResult"></div>
+                        </div>
+                    </div>
+                    <div style="display: inline-flex; align-content: flex-end; flex-direction: column; margin-bottom: 0%;">
+                        <p id="powerResultP" style="padding: 0%; margin-left: 20px; margin-bottom: 0%; margin-top: 15px;">Power:</p>
+                        <div id="powerResultDiv" class="calculationResultHalf" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="powerResult"></div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            <div class="sideBanner">
+                <div class="sideBannerBox2">
+
+                    <img id="calculationImage" src="/Images/Ohms-Law-Reference.svg" width="80%" />
+                    <br>
+                    <a style="margin-top: 10px; margin-bottom: 10px;" href="https://www.ko-bee.com/blogs/555-timer/555-timer" class ="learnButtons" target="_blank">Learn More &#8594</a>
+                </div>
+                </div>
+        </div>
+        <div class="OtherCalculatorsText"><p>Other Calculators:</p></div>
+        <div class="otherCalculators">
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-capacitor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/Series-And-Parallel-Capacitors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Series-And-Parallel-Resistors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/led-series-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/LED-Series-Resistor.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/All-Calculators.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+        </div>
+        </div>
+        <div class="otherCalculators"></div>
+    </body>
+</html>
