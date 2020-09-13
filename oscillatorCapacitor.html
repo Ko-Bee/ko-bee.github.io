@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ocillator Capacitor Calcultor</title>
+        <link href="resistorCalculator.css" rel="stylesheet" />
+        <script src="oscillatorCapacitor.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <div class="container2">
+            <div class="wrapper">
+                <div class="resistorInput">
+                    <p id="CLparagraphSection">
+                        <label>CL</label>
+                        <input style="display: inline" type="text" id="cl" name="cl" class="inputBoxRes" placeholder="Enter Lead Capacitance"/>
+                        <select style="display: inline" id="sizeSelectorCl" , name="inputCl" class="sizeSelector">
+                            <option value="1">pF</option>
+                            <option value="2">nF</option>
+                            <option value="3">µF</option>
+                            <option value="4">mF</option>
+                            <option value="5">F</option>
+                        </select>
+                        <label id="clAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="clAlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="R2paragraphSection">
+                        <label>Cstray</label>
+                        <input style="display: inline" type="text" id="cs" name="cs" class="inputBoxRes" placeholder="Enter Stray Capacitance"/>
+                        <select style="display: inline" id="sizeSelectorCs" , name="inputCs" class="sizeSelector">
+                            <option value="1">pF</option>
+                            <option value="2">nF</option>
+                            <option value="3">µF</option>
+                            <option value="4">mF</option>
+                            <option value="5">F</option>
+                        </select>
+                        <label id="csAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="csAlertBody" class="validationAlertBox"></label>
+                    </p>
+                                     </div>
+                <div id="fullResultOutSection">
+                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">C1, C2:</p>
+                    <div class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="C1C2"></div>
+                    </div>
+                </div>
+            </div>
+
+        
+    </body>
+</html>
