@@ -3,10 +3,14 @@ clearAll();
 clearResults();
 document.getElementById("errorClearButton").addEventListener("click", clearAll);
 document.getElementById("errorClearButton").addEventListener("click", checkHowMany);
+document.getElementById("r1").addEventListener("input", checkHowMany)
 document.getElementById("vin").addEventListener("input", checkHowMany)
 document.getElementById("iin").addEventListener("input", checkHowMany)
 document.getElementById("pin").addEventListener("input", checkHowMany)
-document.getElementById("r1").addEventListener("input", checkHowMany)
+document.getElementById("vin").addEventListener("input", validataDataVin)
+document.getElementById("iin").addEventListener("input", validataDataIin)
+document.getElementById("r1").addEventListener("input", validataDataRin)
+document.getElementById("pin").addEventListener("input", validataDataPin)
 //document.getElementById("vin").addEventListener("input", calculateValues)
 //document.getElementById("iin").addEventListener("input", calculateValues)
 //document.getElementById("pin").addEventListener("input", calculateValues)
@@ -81,89 +85,29 @@ function checkHowMany(){
         document.getElementById("vin").disabled = false;
      }
      if(howManyChecked==2){
-        if(vinInput==1&&iinInput==1){
-            document.getElementById("pin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("pin").style.borderColor = "#ECEFF1";
-            document.getElementById("pLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorP").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorP").style.borderColor = "#ECEFF1";
-            document.getElementById("pin").disabled = true;
-            document.getElementById("r1").style.backgroundColor = "#ECEFF1";
-            document.getElementById("r1").style.borderColor = "#ECEFF1";
-            document.getElementById("rLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.borderColor = "#ECEFF1";
-            document.getElementById("r1").disabled = true;
+        if(vinInputCheck==1&&iinInputCheck==1){
+            blockP();
+            blockR();
         }
-        else if(vinInput==1&&r1Input==1){
-            document.getElementById("pin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("pin").style.borderColor = "#ECEFF1";
-            document.getElementById("pLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorP").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorP").style.borderColor = "#ECEFF1";
-            document.getElementById("pin").disabled = true;
-            document.getElementById("iin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("iin").style.borderColor = "#ECEFF1";
-            document.getElementById("iLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.borderColor = "#ECEFF1";
-            document.getElementById("iin").disabled = true;
+        else if(vinInputCheck==1&&r1InputCheck==1){
+            blockP();
+            blockI();
         }
-        else if(pinInput==1&&r1Input==1){
-            document.getElementById("vin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("vin").style.borderColor = "#ECEFF1";
-            document.getElementById("vLabel").style.color = "#ECEFF1";
-            document.getElementById("vlabel2").style.color = "#ECEFF1";
-            document.getElementById("vlabel2").style.borderColor = "#ECEFF1";
-            document.getElementById("vin").disabled = true;
-            document.getElementById("iin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("iin").style.borderColor = "#ECEFF1";
-            document.getElementById("iLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.borderColor = "#ECEFF1";
-            document.getElementById("iin").disabled = true;
+        else if(pinInputCheck==1&&r1InputCheck==1){
+            blockV();
+            blockI();
         }
-        else if(pinInput==1&&iinInput==1){
-            document.getElementById("vin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("vin").style.borderColor = "#ECEFF1";
-            document.getElementById("vLabel").style.color = "#ECEFF1";
-            document.getElementById("vlabel2").style.color = "#ECEFF1";
-            document.getElementById("vlabel2").style.borderColor = "#ECEFF1";
-            document.getElementById("vin").disabled = true;
-            document.getElementById("r1").style.backgroundColor = "#ECEFF1";
-            document.getElementById("r1").style.borderColor = "#ECEFF1";
-            document.getElementById("rLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.borderColor = "#ECEFF1";
-            document.getElementById("r1").disabled = true;
+        else if(pinInputCheck==1&&iinInputCheck==1){
+            blockV();
+            blockR();
         }
-        else if(pinInput==1&&vinInput==1){
-            document.getElementById("iin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("iin").style.borderColor = "#ECEFF1";
-            document.getElementById("iLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.borderColor = "#ECEFF1";
-            document.getElementById("iin").disabled = true;
-            document.getElementById("r1").style.backgroundColor = "#ECEFF1";
-            document.getElementById("r1").style.borderColor = "#ECEFF1";
-            document.getElementById("rLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.borderColor = "#ECEFF1";
-            document.getElementById("r1").disabled = true;
+        else if(pinInputCheck==1&&vinInputCheck==1){
+            blockI();
+            blockR();
         }
-        else if(iinInput==1&&r1Input==1){
-            document.getElementById("iin").style.backgroundColor = "#ECEFF1";
-            document.getElementById("iin").style.borderColor = "#ECEFF1";
-            document.getElementById("iLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorI").style.borderColor = "#ECEFF1";
-            document.getElementById("iin").disabled = true;
-            document.getElementById("r1").style.backgroundColor = "#ECEFF1";
-            document.getElementById("r1").style.borderColor = "#ECEFF1";
-            document.getElementById("rLabel").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.color = "#ECEFF1";
-            document.getElementById("sizeSelectorR1").style.borderColor = "#ECEFF1";
-            document.getElementById("r1").disabled = true;
+        else if(iinInputCheck==1&&r1InputCheck==1){
+            blockV();
+            blockP();
         }
      }
 
@@ -201,28 +145,28 @@ function checkHowMany(){
 
 function calculateValues(){
     var vinInput = document.getElementById("vin").value;
-    console.log("calculateValues -> vinInput", vinInput)
+    // console.log("calculateValues -> vinInput", vinInput)
     var iinInput = document.getElementById("iin").value;
-    console.log("calculateValues -> iinInput", iinInput)
+    // console.log("calculateValues -> iinInput", iinInput)
     var r1Input = document.getElementById("r1").value;
-    console.log("calculateValues -> r1Input", r1Input)
+    // console.log("calculateValues -> r1Input", r1Input)
     var pinInput = document.getElementById("pin").value;
-    console.log("calculateValues -> pinInput", pinInput)
+    // console.log("calculateValues -> pinInput", pinInput)
     var powerResult = "";
     var currentResult = "";
     var resistanceResult = "";
     var voltageResult = "";
-    console.log("im here")
+    // console.log("im here")
 
     if(vinInput!=""){
-        console.log("in the volts");
+        // console.log("in the volts");
         if(iinInput!="")
         {
-            console.log("in here at least");
+            // console.log("in here at least");
             powerResult=vinInput*iinInput;
-            console.log("calculateValues -> powerResult", powerResult)
+            // console.log("calculateValues -> powerResult", powerResult)
             resistanceResult=vinInput/iinInput;
-            console.log("calculateValues -> resistanceResul", resistanceResult)
+            // console.log("calculateValues -> resistanceResul", resistanceResult)
         }
         else if(r1Input!="")
         {
@@ -331,3 +275,86 @@ function checkCurrent(i){
     }
 }
 
+function blockI(){
+    document.getElementById("iin").style.backgroundColor = "#ECEFF1";
+    document.getElementById("iin").style.borderColor = "#ECEFF1";
+    document.getElementById("iLabel").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorI").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorI").style.borderColor = "#ECEFF1";
+    document.getElementById("iin").disabled = true;
+}
+function blockR(){
+    document.getElementById("r1").style.backgroundColor = "#ECEFF1";
+    document.getElementById("r1").style.borderColor = "#ECEFF1";
+    document.getElementById("rLabel").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorR1").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorR1").style.borderColor = "#ECEFF1";
+    document.getElementById("r1").disabled = true;
+}
+
+function blockV(){
+    document.getElementById("vin").style.backgroundColor = "#ECEFF1";
+    document.getElementById("vin").style.borderColor = "#ECEFF1";
+    document.getElementById("vLabel").style.color = "#ECEFF1";
+    document.getElementById("vlabel2").style.color = "#ECEFF1";
+    document.getElementById("vlabel2").style.borderColor = "#ECEFF1";
+    document.getElementById("vin").disabled = true;
+}
+
+function blockP(){
+    document.getElementById("pin").style.backgroundColor = "#ECEFF1";
+    document.getElementById("pin").style.borderColor = "#ECEFF1";
+    document.getElementById("pLabel").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorP").style.color = "#ECEFF1";
+    document.getElementById("sizeSelectorP").style.borderColor = "#ECEFF1";
+    document.getElementById("pin").disabled = true;
+}
+
+function validataDataVin(){
+    var voltageIn =document.getElementById("vin").value;
+    if(isNaN(voltageIn)){
+        document.getElementById('VAlertBody').innerText = 'Must be a positive number';
+        document.getElementById('VAlertArrow').style.display = 'block';
+        document.getElementById('VAlertBody').style.display = 'block';
+    }
+    if(voltageIn==""){
+        document.getElementById('VAlertArrow').style.display = 'none';
+        document.getElementById('VAlertBody').style.display = 'none';
+    }
+}
+function validataDataIin(){
+    var currentIn =document.getElementById("iin").value;
+    if(isNaN(currentIn)){
+        document.getElementById('IAlertBody').innerText = 'Must be a positive number';
+        document.getElementById('IAlertArrow').style.display = 'block';
+        document.getElementById('IAlertBody').style.display = 'block';
+    }
+    if(currentIn==""){
+        document.getElementById('IAlertArrow').style.display = 'none';
+        document.getElementById('IAlertBody').style.display = 'none';
+    }
+}
+function validataDataRin(){
+    var resistanceIn =document.getElementById("r1").value;
+    if(isNaN(resistanceIn)){
+        document.getElementById('r1AlertBody').innerText = 'Must be a positive number';
+        document.getElementById('r1AlertArrow').style.display = 'block';
+        document.getElementById('r1AlertBody').style.display = 'block';
+    }
+    if(resistanceIn==""){
+        document.getElementById('r1AlertArrow').style.display = 'none';
+        document.getElementById('r1AlertBody').style.display = 'none';
+    }
+}
+function validataDataPin(){
+    var powerIn =document.getElementById("pin").value;
+    if(isNaN(powerIn)){
+        document.getElementById('PAlertBody').innerText = 'Must be a positive number';
+        document.getElementById('PAlertArrow').style.display = 'block';
+        document.getElementById('PAlertBody').style.display = 'block';
+    }
+    if(powerIn==""){
+        document.getElementById('PAlertBody').style.display = 'none';
+        document.getElementById('PAlertArrow').style.display = 'none';
+    }
+}
