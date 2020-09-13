@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Waveform Calculator</title>
+        <link href="resistorCalculator.css" rel="stylesheet" />
+        <script src="vppCalculator.js" defer></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + "px";
+            }
+        </script>
+    </head>
+
+    <body >
+        <div class= "overallContainer">
+            <p style="margin-top: 0px; margin-bottom: 10px">Use the calculator below to find RMS, Peak, Peak to Peak and Average voltages for any given voltage input. You can change the frequency to calculate the sine waves period or just leave it at 1</p>
+            <p style="margin-top: 0px; margin-bottom: 10px">Click the learn more button below to <a href = "https://www.ko-bee.com/blogs/electronic-basics/peak-average-rms-voltages" class="colorPopLink" target = "blank">learn all about AC voltages</a></p style="margin-top: 0.5px;">
+        <div class="container">
+            <div id="wrapper" class="wrapper">
+                <div class="howToUse">
+                    <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" class ="otherCalculatorButtons" target="_blank">See All Calculators &#8594</a>
+                </div>
+
+                <div class="resistorInput">
+                    <p id="vinParagraphSection">
+                        <label>Voltage</label>
+                        <input style="display: inline" type="text" id="vin" name="vin" class="inputBoxRes" placeholder="Enter Resistor 1"/>
+                        <select style="display: inline" id="inputSelectorVin" , name="inputSelectorVin" class="sizeSelector">
+                            <option value="1">Vp</option>
+                            <option value="2">Vp-p</option>
+                            <option value="3">Vrms</option>
+                            <option value="4">Vavg</option>
+                        </select>
+                        <label id="vinAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="vinAlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="freqParagraphSection">
+                        <label>Frequency</label>
+                        <input  style="display: inline" type="text" id="freq" name="freq" class="inputBoxRes5" placeholder="Enter Resistor 1"/>
+                        <span id="vlabel2" class="valueSpan" style="display: inline">Hz</span>
+                        <label id="freqAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="freqAlertBody" class="validationAlertBox"></label>
+                    </p>
+                                    </div>
+                <div id="halfResultOutSection">
+                <div class="resistorInput3" >
+                        <div id="waveform"></div>
+                </div>
+                </div>
+                <div id="resultsMobileSection" style=" border-radius: 10px; margin-left: 11px; margin-right: 11px; margin-top: 15px; margin-bottom: 15px;" id="fullResultOutSection">
+                    <p id="voltage1heading" style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Vout:</p>
+                    <div id="voltage1resultsPlace" class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="voltage1result"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                    <p id="voltage2heading" style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Vout:</p>
+                    <div id="voltage2resultsPlace" class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="voltage2result"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                    <p id="voltage3heading" style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Vout:</p>
+                    <div id="voltage3resultsPlace" class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="voltage3result"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Period:</p>
+                    <div class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="periodresult"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="sideBanner">
+                <div class="sideBannerBox4">
+                    <p>Applicable Calculations can be found at the voltages learning page. Click the learn more button below</p>
+                    <a style="margin-top: 10px;" href="https://www.ko-bee.com/blogs/electronic-basics/peak-average-rms-voltages" class ="learnButtons" target="_blank">Learn More &#8594</a>
+                </div>
+                <div class="sideBannerBox3">
+                        <p id="voltage1Heading" style=" padding: 0%; margin-left: 0px; margin-bottom: 0%; margin-top: 0px;">Voltage1:</p>
+                        <div id="voltage1ResultsPlace" class="calculationResultHalf3" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="voltage1Result"></div>
+                        </div>
+                        <p id="voltage2Heading" style="padding: 0%; margin-left: 0px; margin-bottom: 0%; margin-top: 0px;">Voltage2:</p>
+                        <div id="voltage2ResultsPlace" class="calculationResultHalf3" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="voltage2Result"></div>
+                        </div>
+                        <p id="voltage3Heading" style="padding: 0%; margin-left: 0px; margin-bottom: 0%; margin-top: 0px;">Voltage3:</p>
+                        <div id="voltage3ResultsPlace" class="calculationResultHalf3" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="voltage3Result"></div>
+                        </div>
+                        <p style="padding: 0%; margin-left: 0px; margin-bottom: 0%; margin-top: 0px;">Period:</p>
+                        <div class="calculationResultHalf3" >
+                            <div class="OutputResultFormatting" >=</div>
+                            <div class="OutputResultFormatting" id="periodResult"></div>
+                        </div>
+                </div>
+                </div>
+        </div>
+        <div class="OtherCalculatorsText"><p>Other Calculators:</p></div>
+        <div class="otherCalculators">
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-capacitor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/Series-And-Parallel-Capacitors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Series-And-Parallel-Resistors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/led-series-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/LED-Series-Resistor.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/All-Calculators.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+        </div>
+        </div>
+        <div class="otherCalculators"></div>
+    </body>
+</html>
