@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="EquationIcon.svg"
+   xml:space="preserve"
+   style="enable-background:new 0 0 512 512;"
+   viewBox="0 0 512 512"
+   y="0px"
+   x="0px"
+   id="Capa_1"
+   version="1.1"><metadata
+   id="metadata52"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs50" /><sodipodi:namedview
+   inkscape:current-layer="Capa_1"
+   inkscape:window-maximized="1"
+   inkscape:window-y="472"
+   inkscape:window-x="-8"
+   inkscape:cy="-56.593554"
+   inkscape:cx="323.37048"
+   inkscape:zoom="0.38773482"
+   showgrid="false"
+   id="namedview48"
+   inkscape:window-height="1377"
+   inkscape:window-width="2560"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+<linearGradient
+   gradientTransform="matrix(1 0 0 -1 0 514)"
+   y2="258"
+   x2="457.9842"
+   y1="258"
+   x1="54.0158"
+   gradientUnits="userSpaceOnUse"
+   id="SVGID_1_">
+	<stop
+   id="stop2"
+   style="stop-color:#fef900;stop-opacity:1"
+   offset="0" />
+	<stop
+   id="stop4"
+   style="stop-color:#fef900;stop-opacity:1"
+   offset="0.021" />
+	<stop
+   id="stop6"
+   style="stop-color:#fef900;stop-opacity:1"
+   offset="0.25688457" />
+	<stop
+   id="stop8"
+   style="stop-color:#fed700;stop-opacity:1"
+   offset="0.71426225" />
+	<stop
+   id="stop10"
+   style="stop-color:#fed700;stop-opacity:1"
+   offset="0.796" />
+	<stop
+   id="stop12"
+   style="stop-color:#fed700;stop-opacity:1"
+   offset="1" />
+</linearGradient>
+<path
+   id="path15"
+   d="M219.984,340c-5.094,0-10.187-1.932-14.087-5.803c-7.841-7.78-7.891-20.443-0.11-28.284  l45.218-45.572L65.199,67.732c-11.153-11.625-14.267-28.653-7.97-43.421C63.526,9.542,77.97,0,94.024,0h283.96  c44.112,0,80,35.888,80,80c0,11.046-8.954,20-20,20s-20-8.954-20-20c0-22.056-17.944-40-40-40H94.024l199.354,206.652  c7.55,7.827,7.463,20.253-0.197,27.973l-59,59.462C230.272,338.027,225.128,340,219.984,340z M457.984,432c0-11.046-8.954-20-20-20  s-20,8.954-20,20c0,22.056-17.944,40-40,40H96.025c0.018-0.018,0.037-0.039,0.06-0.061l65.123-65.879  c7.766-7.855,7.692-20.518-0.163-28.284c-7.855-7.765-20.518-7.691-28.284,0.164l-65.063,65.818  c-11.454,11.488-14.837,28.593-8.617,43.577C65.3,502.318,79.802,512,96.024,512h281.96C422.096,512,457.984,476.112,457.984,432z"
+   style="fill:url(#SVGID_1_)" />
+<g
+   id="g17">
+</g>
+<g
+   id="g19">
+</g>
+<g
+   id="g21">
+</g>
+<g
+   id="g23">
+</g>
+<g
+   id="g25">
+</g>
+<g
+   id="g27">
+</g>
+<g
+   id="g29">
+</g>
+<g
+   id="g31">
+</g>
+<g
+   id="g33">
+</g>
+<g
+   id="g35">
+</g>
+<g
+   id="g37">
+</g>
+<g
+   id="g39">
+</g>
+<g
+   id="g41">
+</g>
+<g
+   id="g43">
+</g>
+<g
+   id="g45">
+</g>
+</svg>
