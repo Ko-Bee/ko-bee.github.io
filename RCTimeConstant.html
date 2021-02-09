@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RC Time Constant Calculator</title>
+        <link href="resistorCalculator.css" rel="stylesheet" />
+        <script src="RCTimeConstant.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet" />
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + "px";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class= "overallContainer">
+            <p style="margin-top: 0px; margin-bottom: 10px">Use the following tool to calculate the resistance required to drive one or multiple LEDs configured in series or parallel. </p>
+            <div style="margin-top: 0px; margin-bottom: 10px">&#9888 Take care to ensure you are providing an appropriately rated resistor for the application. <a href = "https://www.ko-bee.com/blogs/electronic-basics/led-current-limiting-resistors" class="colorPopLink">Learn more about current limiting resistors in LED circuits</a> and when another solution may be the right answer </pstyle="margin-top: 0.5px;">
+        <div class="container">
+            <div class="wrapper">
+                <div class="howToUse">
+                    <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" class ="otherCalculatorButtons" target="_blank">See All Calculators &#8594</a>
+                </div>
+                <br>
+              
+                <div class="resistorInput">
+                    <p id="C1paragraphSection">
+                        <label>C1</label>
+                        <input style="display: inline" type="text" id="c1" name="c1" class="inputBoxRes" placeholder="Enter Capacitance"/>
+                        <select style="display: inline" id="sizeSelectorC1" , name="inputC1" class="sizeSelector">
+                            <option value="1">pF</option>
+                            <option value="2">nF</option>
+                            <option value="3">µF</option>
+                            <option value="4">mF</option>
+                            <option value="5">F</option>
+                        </select>
+                        <label id="c1AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="c1AlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="R1paragraphSection">
+                        <label>R1</label>
+                        <input style="display: inline" type="text" id="r1" name="r1" class="inputBoxRes" placeholder="Enter Resistance"/>
+                        <select style="display: inline" id="sizeSelectorR1" , name="inputR1" class="sizeSelector">
+                            <option value="1">Ω</option>
+                            <option value="2">kΩ</option>
+                            <option value="3">MΩ</option>
+                        </select>
+                        <label id="r1AlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="r1AlertBody" class="validationAlertBox"></label>
+                    </p>
+                    <p id="vinparagraphSection">
+                        <label>Voltage Input (Vin)</label>
+                        <input style="display: inline" type="text" id="vin" name="vin" class="inputBoxRes5" placeholder="Enter Voltage" />
+                        <span class="valueSpan" style="display: inline">&nbsp;&nbsp;V&nbsp;</span>
+                        <label id="vinAlertArrow" class="validationAlertBoxArrow"></label>
+                        <label id="vinAlertBody" class="validationAlertBox"></label>
+                    </p>
+                </div>
+                <div id="fullResultOutSection">
+                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Time Constant:</p>
+                    <div class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="timeConstantResult"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                </div>
+                <div id="fullResultOutSection">
+                    <p style="padding: 0%; margin-left: 30px; margin-bottom: 0%; margin-top: 15px;">Energy:</p>
+                    <div class="calculationResultHalf2">
+                        <div class="OutputResultFormatting" >=</div>
+                        <div class="OutputResultFormatting" id="joulesResult"></div>
+                        <a href="https://www.ko-bee.com/blogs/electronic-basics/voltage-dividers" class="numberCircle" target="_blank">?
+                            <span class="tooltiptext">Tooltip text</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="sideBanner">
+                <div class ="sideBannerBox">
+                    <p style="font-size:large" id="configHeading">RC Time Constant</p>
+                    <img id="headerImage" src="/Images/LEDs-In-Series.svg" width="80%" />
+                </div>
+                <div class="sideBannerBox">
+                    <p>Applicable Calculation found below. Click the link to learn more about choosing resistors for LED circuits</p>
+                    <img id="calculationImage" src="/Images/LED-In-Series-Equation.svg" width="50%" />
+                    <a style="margin-top: 10px;" href="https://www.ko-bee.com/blogs/electronic-basics/led-current-limiting-resistors" class ="learnButtons" target="_blank">Learn More &#8594</a>
+                </div>
+                </div>
+        </div>
+        <div class="OtherCalculatorsText"><p>Other Calculators:</p></div>
+        <div class="otherCalculators">
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-capacitor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/Series-And-Parallel-Capacitors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/series-and-parallel-resistor-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Series-And-Parallel-Resistors.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/voltage-divider-calculator" target="_blank"
+                    ><img class="otherCalculatorsImage" src="/Images/Voltage-Divider.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+            <p class="otherCalculatorBox">
+                <a href="https://www.ko-bee.com/blogs/calculators/all-calculators" target="_blank"
+                    ><img class="otherCalculatorsImage" src="Images/All-Calculators.svg" width="90%" target="_blank"
+                /></a>
+            </p>
+        </div>
+        </div>
+        <div class="otherCalculators"></div>
+    </body>
+</html>
