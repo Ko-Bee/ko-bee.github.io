@@ -8,6 +8,7 @@ document.getElementById("tool-2").addEventListener("click", iconCheckerFull);
 document.getElementById("tool-3").addEventListener("click", iconCheckerFull);
 document.getElementById("tool-4").addEventListener("click", iconCheckerFull);
 document.getElementById("tool-5").addEventListener("click", iconCheckerFull);
+document.getElementById("tool-6").addEventListener("click", iconCheckerFull);
 document.getElementById("goButtonID").addEventListener("click", computeValue);
 var iconLinkValue;
 var userLinkInput;
@@ -27,6 +28,7 @@ function iconCheckerFull(){
     var linkContainer = document.getElementById("tool-3").checked;
     var newsLetterContainer = document.getElementById("tool-4").checked;
     var iframeContainer = document.getElementById("tool-5").checked;
+    var blogImageContainer = document.getElementById("tool-6").checked;
 
 
     if(portionContainer==true){
@@ -82,7 +84,26 @@ function iconCheckerFull(){
         document.getElementById('fullContentsLabel').style.display='none',
         document.getElementById('fullContentsButton').style.display='none',
         document.getElementById('fileNameInDiv').style.display='none'
-    }     
+    }
+
+    if(blogImageContainer==true){
+        document.getElementById('yesNoRadio').style.display='block',
+        document.getElementById('imageOrTextClass').style.display='none',
+        document.getElementById('imageOrTextButtonClass').style.display='none',
+        document.getElementById('fileLocationTypeNo').style.display='none',
+        document.getElementById('fileNameConstructor').style.display='none',
+        document.getElementById('linkInputID1').style.display='none',
+        document.getElementById('textInputID').style.display='none',
+        document.getElementById('linkInputID').style.display='none',
+        document.getElementById('openInTabHeader').style.display='block',
+        document.getElementById('ButtonLabelTitle').style.display='block',
+        document.getElementById('ButtonLabelInput').style.display='block',
+        document.getElementById('ButtonLinkTitle').style.display='block',
+        document.getElementById('ButtonLinkInput').style.display='block',
+        document.getElementById('fullContentsLabel').style.display='none',
+        document.getElementById('fullContentsButton').style.display='none',
+        document.getElementById('fileNameInDiv').style.display='none'
+    }       
 
     
     if(newsLetterContainer==true){
@@ -155,10 +176,14 @@ function computeValue(){
     var section3 = document.getElementById("tool-3").checked;
     var section4 = document.getElementById("tool-4").checked;
     var section5 = document.getElementById("tool-5").checked;
+    var section6 = document.getElementById("tool-6").checked;
     var isFull = document.getElementById("budget-1").checked;
     var isImage = document.getElementById("content-1").checked;
     var infoIcon1 = document.getElementById("icon-1").checked;
     var infoIcon2 = document.getElementById("icon-2").checked;
+    var infoIcon3 = document.getElementById("icon-3").checked;
+    var infoIcon4 = document.getElementById("icon-4").checked;
+    var infoIcon5 = document.getElementById("icon-5").checked;
     var fileNameCheck = document.getElementById("imageString1").checked;
     var fileDirectory = document.getElementById("fileDirectoryName").value;
     var inSeperateTab = document.getElementById("yesyes").checked;
@@ -173,21 +198,22 @@ function computeValue(){
                                 case true:
                                     iconLinkValue = linkStorage[0];
                                     userFileName = document.getElementById("fileNameIn").value;
-                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+directoryStorage[fileDirectory]+userFileName+'" width="100%" /></div></div>';
+                                    outPutResult = '<div class="infoBox"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+directoryStorage[fileDirectory]+userFileName+'" width="100%" /></div></div>';
                                     document.getElementById("resultsOuts").value = outPutResult;
                                     break
                                 default:
                                     iconLinkValue = linkStorage[0];
                                     userLinkInput = document.getElementById("imageIn").value;
-                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+userLinkInput+'" width="100%" /></div></div>';
+                                    outPutResult = '<div class="infoBox"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+userLinkInput+'" width="100%" /></div></div>';
                                     document.getElementById("resultsOuts").value = outPutResult;
                                     break
                             }
                             break
                         default:
                             iconLinkValue = linkStorage[0];
+                            userHeadingInput = document.getElementById("fileNameIn").value;
                             userTextInput = document.getElementById("textIn").value;
-                            outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><p>'+userTextInput+'</p></div>';
+                            outPutResult = '<div class="infoBox"><div class="infoBoxHeading">'+userHeadingInput+'</div>'+userTextInput+'</div>';
                             document.getElementById("resultsOuts").value = outPutResult;
                             break
                     }
@@ -213,7 +239,59 @@ function computeValue(){
                         default:
                             iconLinkValue = linkStorage[1];
                             userTextInput = document.getElementById("textIn").value;
-                            outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><p>'+userTextInput+'</p></div>';
+                            outPutResult = '<div class="equationBox"><div class="equationBoxHeading">'+userHeadingInput+'</div>'+userTextInput+'</div>';
+                            document.getElementById("resultsOuts").value = outPutResult;
+                            break
+                    }
+                }
+                else if(infoIcon4==true){
+                    switch(isImage){
+                        case true:
+                            switch(fileNameCheck){
+                                case true:
+                                    iconLinkValue = linkStorage[1];
+                                    userFileName = document.getElementById("fileNameIn").value;
+                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+directoryStorage[fileDirectory]+userFileName+'" width="100%" /></div></div>';
+                                    document.getElementById("resultsOuts").value = outPutResult;
+                                    break
+                                default:
+                                    iconLinkValue = linkStorage[1];
+                                    userLinkInput = document.getElementById("imageIn").value;
+                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+userLinkInput+'" width="100%" /></div></div>';
+                                    document.getElementById("resultsOuts").value = outPutResult;
+                                    break
+                            }
+                            break
+                        default:
+                            iconLinkValue = linkStorage[1];
+                            userTextInput = document.getElementById("textIn").value;
+                            outPutResult = '<div class="furtherLearningBox"><div class="furtherLearningBoxHeading">'+userHeadingInput+'</div>'+userTextInput+'</div>';
+                            document.getElementById("resultsOuts").value = outPutResult;
+                            break
+                    }
+                }
+                else if(infoIcon5==true){
+                    switch(isImage){
+                        case true:
+                            switch(fileNameCheck){
+                                case true:
+                                    iconLinkValue = linkStorage[1];
+                                    userFileName = document.getElementById("fileNameIn").value;
+                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+directoryStorage[fileDirectory]+userFileName+'" width="100%" /></div></div>';
+                                    document.getElementById("resultsOuts").value = outPutResult;
+                                    break
+                                default:
+                                    iconLinkValue = linkStorage[1];
+                                    userLinkInput = document.getElementById("imageIn").value;
+                                    outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+userLinkInput+'" width="100%" /></div></div>';
+                                    document.getElementById("resultsOuts").value = outPutResult;
+                                    break
+                            }
+                            break
+                        default:
+                            iconLinkValue = linkStorage[1];
+                            userTextInput = document.getElementById("textIn").value;
+                            outPutResult = '<div class="warningBox"><div class="warningBoxHeading">'+userHeadingInput+'</div>'+userTextInput+'</div>';
                             document.getElementById("resultsOuts").value = outPutResult;
                             break
                     }
@@ -223,13 +301,13 @@ function computeValue(){
                         case true:
                             switch(fileNameCheck){
                                 case true:
-                                    iconLinkValue = linkStorage[2];
+                                    iconLinkValue = linkStorage[1];
                                     userFileName = document.getElementById("fileNameIn").value;
                                     outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+directoryStorage[fileDirectory]+userFileName+'" width="100%" /></div></div>';
                                     document.getElementById("resultsOuts").value = outPutResult;
                                     break
                                 default:
-                                    iconLinkValue = linkStorage[2];
+                                    iconLinkValue = linkStorage[1];
                                     userLinkInput = document.getElementById("imageIn").value;
                                     outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><div class="equationImageDiv" style="text-align: start;"><img class="equationImage" src="'+userLinkInput+'" width="100%" /></div></div>';
                                     document.getElementById("resultsOuts").value = outPutResult;
@@ -237,9 +315,9 @@ function computeValue(){
                             }
                             break
                         default:
-                            iconLinkValue = linkStorage[2];
+                            iconLinkValue = linkStorage[1];
                             userTextInput = document.getElementById("textIn").value;
-                            outPutResult = '<div class="attentionInfo-box"><div><img src="'+iconLinkValue+'" width="50px" /></div><p>'+userTextInput+'</p></div>';
+                            outPutResult = '<div class="exampleBox"><div class="exampleBoxHeading">'+userHeadingInput+'</div>'+userTextInput+'</div>';
                             document.getElementById("resultsOuts").value = outPutResult;
                             break
                     }
@@ -331,13 +409,13 @@ function computeValue(){
                     case true:
                         var buttonTitle = document.getElementById("buttonLabelIn").value;
                         var buttonLink = document.getElementById("buttonLinkIn").value;
-                        outPutResult= '<div class="buttonContainer"><a class="articleButton" href="http://'+buttonLink+'" target="_blank" rel="noopener noreferrer">'+buttonTitle+'</a></div>'
+                        outPutResult= '<div class="buttonContainer"><a class="articleButton" href="'+buttonLink+'" target="_blank" rel="noopener noreferrer">'+buttonTitle+'</a></div>'
                         document.getElementById("resultsOuts").value = outPutResult;
                         break
                     default:
                         var buttonTitle = document.getElementById("buttonLabelIn").value;
                         var buttonLink = document.getElementById("buttonLinkIn").value;
-                        outPutResult= '<div class="buttonContainer"><a class="articleButton" href="http://'+buttonLink+'" rel="noopener noreferrer">'+buttonTitle+'</a></div>'
+                        outPutResult= '<div class="buttonContainer"><a class="articleButton" href='+buttonLink+'" rel="noopener noreferrer">'+buttonTitle+'</a></div>'
                         document.getElementById("resultsOuts").value = outPutResult;
                         break
                 }
@@ -347,13 +425,13 @@ function computeValue(){
                 case true:
                     var buttonTitle = document.getElementById("buttonLabelIn").value;
                     var buttonLink = document.getElementById("buttonLinkIn").value;
-                    outPutResult= '<a class="articleButton" href="http://'+buttonLink+'" target="_blank" rel="noopener noreferrer">'+buttonTitle+'</a>'
+                    outPutResult= '<a class="articleButton" href="'+buttonLink+'" target="_blank" rel="noopener noreferrer">'+buttonTitle+'</a>'
                     document.getElementById("resultsOuts").value = outPutResult;
                     break
                 default:
                     var buttonTitle = document.getElementById("buttonLabelIn").value;
                     var buttonLink = document.getElementById("buttonLinkIn").value;
-                    outPutResult= '<a class="articleButton" href="http://'+buttonLink+'" rel="noopener noreferrer">'+buttonTitle+'</a>'
+                    outPutResult= '<a class="articleButton" href="'+buttonLink+'" rel="noopener noreferrer">'+buttonTitle+'</a>'
                     document.getElementById("resultsOuts").value = outPutResult;
                     break
             }
@@ -367,6 +445,23 @@ function computeValue(){
                 var buttonTitle = document.getElementById("buttonLabelIn").value;
                 var buttonLink = document.getElementById("buttonLinkIn").value;
                 outPutResult= '<a href="http://'+buttonLink+'" target="_blank" title="'+buttonTitle+'" rel="noopener noreferrer" style="text-decoration: underline;" rel="noopener noreferrer">'+buttonTitle+'</a>'
+                document.getElementById("resultsOuts").value = outPutResult;
+                break
+            default:
+                var buttonTitle = document.getElementById("buttonLabelIn").value;
+                var buttonLink = document.getElementById("buttonLinkIn").value;
+                outPutResult= '<a href="http://'+buttonLink+'" title="'+buttonTitle+'" rel="noopener noreferrer" style="text-decoration: underline;" rel="noopener noreferrer">'+buttonTitle+'</a>'
+                document.getElementById("resultsOuts").value = outPutResult;
+                break
+        }
+    }
+
+    if(section6==true){
+        switch(inSeperateTab){
+            case true:
+                var imageAltTitle = document.getElementById("buttonLabelIn").value;
+                var imageLink = document.getElementById("buttonLinkIn").value;
+                outPutResult= '<a href="'+imageLink+'" target="_blank"><img src="'+imageLink+'" style="box-shadow: 0 3px 15px rgb(0 0 0 / 0.4)" title="Click to Enlarge" alt="'+imageAltTitle+'" data-mce-fragment="1" data-mce-src="'+imageLink+'"></a><br>'
                 document.getElementById("resultsOuts").value = outPutResult;
                 break
             default:
